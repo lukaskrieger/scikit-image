@@ -6,6 +6,12 @@ from .selem import (square, rectangle, diamond, disk, cube, octahedron, ball,
                     octagon, star)
 from ..measure._label import label
 from .watershed import watershed
+from .watershedMod import watershedMod
+from .watershedModStop import watershedModStop
+from .watershedModStopFast import watershedModStopFast
+from .watershedSimpleVelocity import watershedSimpleVelocity
+from .watershedFlowLines import watershedFlowLines
+from .watershedFlowLinesWithoutRegion import watershedFlowLinesWithoutRegion
 from ._skeletonize import skeletonize, medial_axis, thin
 from ._skeletonize_3d import skeletonize_3d
 from .convex_hull import convex_hull_image, convex_hull_object
@@ -35,6 +41,12 @@ __all__ = ['binary_erosion',
            'star',
            'label',
            'watershed',
+           'watershedMod',
+           'watershedModStop',
+           'watershedModStopFast',
+           'watershedSimpleVelocity',
+           'watershedFlowLines',
+           'watershedFlowLinesWithoutRegion',
            'skeletonize',
            'skeletonize_3d',
            'thin',
