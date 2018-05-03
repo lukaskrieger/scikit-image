@@ -11,6 +11,7 @@ Original author: Lee Kamentsky
 """
 import numpy as np
 from libc.math cimport sqrt
+#from libcpp.vector cimport vector
 
 cimport numpy as cnp
 cimport cython
@@ -46,7 +47,7 @@ def watershed_raveled(cnp.float64_t[::1] image,
                       DTYPE_INT32_t[::1] structure,
                       DTYPE_BOOL_t[::1] mask,
                       DTYPE_INT32_t[::1] velocityLabels,
-                      DTYPE_INT32_t[:,::1] connectedIndices,
+                      connectedIndices,
                       cnp.int32_t[::1] strides,
                       cnp.double_t compactness,
                       DTYPE_INT32_t[::1] output,
@@ -137,9 +138,6 @@ def watershed_raveled(cnp.float64_t[::1] image,
 
             #Go over indices of all connected velocites
             for connectedIndex in connectedIndices[velocityLabel-1]:
-                #Reached end point
-                if connectedIndex == -1:
-                    break
                 #Set all output pixels to the source
                 output[connectedIndex] = outputAtSource
                 #print("Set", connectedIndex, "to", outputAtSource)
